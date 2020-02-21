@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">lightsOut</string>
+    <string name="what_is_your_nickname">What is your Name?</string>
+    <string name="box_one">box_one</string>
+    <string name="box_two">box_two</string>
+    <string name="box_three">box_three</string>
+    <string name="box_four_text">TextView</string>
+    <string name="box_four">box_four</string>
+    <string name="box_five">TextView</string>
+    <string name="DONE">DONE</string>
+    <string name="done">DONE</string>
+    <string name="RETRY">Button</string>
+    <string name="retry">RETRY</string>
+</resources>
