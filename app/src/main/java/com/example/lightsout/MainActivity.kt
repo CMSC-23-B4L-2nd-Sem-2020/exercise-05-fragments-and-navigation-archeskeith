@@ -10,16 +10,19 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.lightsout.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
     var counter:Int = 0
-
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         findViewById<Button>(R.id.done_button).setOnClickListener {
             addNickname(it)

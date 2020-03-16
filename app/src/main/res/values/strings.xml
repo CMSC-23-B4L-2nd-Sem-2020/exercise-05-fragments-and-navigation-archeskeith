@@ -11,4 +11,7 @@
     <string name="done">DONE</string>
     <string name="RETRY">Button</string>
     <string name="retry">RETRY</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
