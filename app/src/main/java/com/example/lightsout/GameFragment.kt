@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -19,6 +20,7 @@ import androidx.navigation.ui.NavigationUI
 import com.example.lightsout.databinding.FragmentTitleBinding
 import com.example.lightsout.databinding.GameFragmentBinding
 import kotlinx.android.synthetic.main.game_fragment.*
+import kotlinx.android.synthetic.main.game_fragment.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -40,7 +42,7 @@ class GameFragment : Fragment() {
             doneButton.setOnClickListener{
                 addNickname(it)
             }
-            nickname_edit.setOnClickListener{
+            nicknameEdit.setOnClickListener{
                 updateNickname(it)
             }
 
@@ -85,67 +87,72 @@ class GameFragment : Fragment() {
         counter = 0
 //        val pointsText : TextView = findViewById(R.id.textView)
 //        pointsText.text = counter.toString();
+        binding.apply{
+            textView.text = counter.toString();
+        }
 
-        textView.text = counter.toString();
     }
 
-//    private fun applyColor(box:View){
-//        val cd = box.background as ColorDrawable
-//        val colorCode = cd.color
-//
-//        if (colorCode == Color.BLACK){
-//            box.setBackgroundColor(Color.WHITE)
-//        }else if (colorCode == Color.WHITE){
-//            box.setBackgroundColor(Color.BLACK)
-//        }
-//
-//    }
+    private fun applyColor(box:View){
+        val cd = box.background as ColorDrawable
+        val colorCode = cd.color
 
-//    private fun makeColored(view:View){
-//
+        if (colorCode == Color.BLACK){
+            box.setBackgroundColor(Color.WHITE)
+        }else if (colorCode == Color.WHITE){
+            box.setBackgroundColor(Color.BLACK)
+        }
+
+    }
+
+    private fun makeColored(view:View){
+
 //        val pointsText : TextView = findViewById(R.id.textView)
-//
-//
-//        //i am assuming that this is the if function when it's clicked
-//        when (view.id){
-//
-//            R.id.box_one_text -> {applyColor(box_one_text); applyColor(box_one_text9); applyColor(box_two_text); counter++;}
-//            R.id.box_one_text5 -> {applyColor(box_one_text10); applyColor(box_two_text5); applyColor(box_one_text5);counter++;}
-//            R.id.box_five_text5 -> {applyColor(box_five_text5); applyColor(box_four_text5);applyColor(box_five_text8);counter++;}
-//            R.id.box_five_text -> {applyColor(box_five_text); applyColor(box_five_text7); applyColor(box_four_text);counter++;}
-//
-//            R.id.box_two_text -> {applyColor(box_one_text); applyColor(box_two_text); applyColor(box_two_text7); applyColor(box_three_text);counter++;}
-//            R.id.box_three_text -> {applyColor(box_three_text); applyColor(box_two_text); applyColor(box_three_text7); applyColor(box_four_text);counter++;}
-//            R.id.box_four_text -> {applyColor(box_four_text); applyColor(box_three_text); applyColor(box_four_text7); applyColor(box_five_text);counter++;}
-//
-//            R.id.box_one_text9 -> {applyColor(box_one_text9); applyColor(box_one_text); applyColor(box_one_text11); applyColor(box_two_text7);counter++;}
-//            R.id.box_two_text7 -> {applyColor(box_two_text7); applyColor(box_one_text9); applyColor(box_two_text); applyColor(box_two_text9); applyColor(box_three_text7);counter++;}
-//            R.id.box_three_text7 -> {applyColor(box_three_text7); applyColor(box_two_text7); applyColor(box_three_text); applyColor(box_four_text7); applyColor(box_three_text9);counter++;}
-//            R.id.box_four_text7 -> {applyColor(box_four_text7); applyColor(box_three_text7); applyColor(box_four_text);applyColor(box_five_text7); applyColor(box_four_text9);counter++;}
-//            R.id.box_five_text7 -> {applyColor(box_five_text7); applyColor(box_four_text7); applyColor(box_five_text9); applyColor(box_five_text);counter++;}
-//
-//            R.id.box_one_text11 -> {applyColor(box_one_text11); applyColor(box_two_text9); applyColor(box_one_text9); applyColor(box_one_text10);counter++;}
-//            R.id.box_two_text9 -> {applyColor(box_two_text9); applyColor(box_one_text11); applyColor(box_two_text7); applyColor(box_three_text9); applyColor(box_two_text8);counter++;}
-//            R.id.box_three_text9 -> {applyColor(box_three_text9); applyColor(box_two_text9); applyColor(box_three_text7); applyColor(box_four_text9);applyColor(box_three_text8);counter++;}
-//            R.id.box_four_text9 -> {applyColor(box_four_text9); applyColor(box_three_text9); applyColor(box_four_text7); applyColor(box_five_text9); applyColor(box_four_text8);counter++;}
-//            R.id.box_five_text9 -> {applyColor(box_five_text9); applyColor(box_four_text9); applyColor(box_five_text7); applyColor(box_five_text8);counter++;}
-//
-//            R.id.box_one_text10 -> {applyColor(box_one_text10); applyColor(box_one_text11); applyColor(box_two_text8); applyColor(box_one_text5);counter++;}
-//            R.id.box_two_text8 -> {applyColor(box_two_text8); applyColor(box_one_text10); applyColor(box_two_text9); applyColor(box_three_text8); applyColor(box_two_text5);counter++;}
-//            R.id.box_three_text8 -> {applyColor(box_three_text8); applyColor(box_two_text8); applyColor(box_three_text9); applyColor(box_four_text8); applyColor(box_three_text5);counter++;}
-//            R.id.box_four_text8 -> {applyColor(box_four_text8); applyColor(box_three_text8); applyColor(box_four_text9); applyColor(box_five_text8); applyColor(box_four_text5);counter++;}
-//            R.id.box_five_text8 -> {applyColor(box_five_text8); applyColor(box_four_text8); applyColor(box_five_text9); applyColor(box_five_text5);counter++;}
-//
-//            R.id.box_two_text5 -> {applyColor(box_two_text5); applyColor(box_one_text5); applyColor(box_two_text8); applyColor(box_three_text5);counter++;}
-//            R.id.box_three_text5 -> {applyColor(box_three_text5); applyColor(box_two_text5); applyColor(box_three_text8); applyColor(box_four_text5);counter++;}
-//            R.id.box_four_text5 -> {applyColor(box_three_text5); applyColor(box_four_text5); applyColor(box_four_text8); applyColor(box_five_text5);counter++;}
-//            else-> view.setBackgroundColor(Color.LTGRAY);
-//
-//        }
-//        pointsText.text = counter.toString();
-//    }
 
-//    private fun setListeners() {
+
+        //i am assuming that this is the if function when it's clicked
+        when (view.id){
+
+            R.id.box_one_text -> {applyColor(box_one_text); applyColor(box_one_text9); applyColor(box_two_text); counter++;}
+            R.id.box_one_text5 -> {applyColor(box_one_text10); applyColor(box_two_text5); applyColor(box_one_text5);counter++;}
+            R.id.box_five_text5 -> {applyColor(box_five_text5); applyColor(box_four_text5);applyColor(box_five_text8);counter++;}
+            R.id.box_five_text -> {applyColor(box_five_text); applyColor(box_five_text7); applyColor(box_four_text);counter++;}
+
+            R.id.box_two_text -> {applyColor(box_one_text); applyColor(box_two_text); applyColor(box_two_text7); applyColor(box_three_text);counter++;}
+            R.id.box_three_text -> {applyColor(box_three_text); applyColor(box_two_text); applyColor(box_three_text7); applyColor(box_four_text);counter++;}
+            R.id.box_four_text -> {applyColor(box_four_text); applyColor(box_three_text); applyColor(box_four_text7); applyColor(box_five_text);counter++;}
+
+            R.id.box_one_text9 -> {applyColor(box_one_text9); applyColor(box_one_text); applyColor(box_one_text11); applyColor(box_two_text7);counter++;}
+            R.id.box_two_text7 -> {applyColor(box_two_text7); applyColor(box_one_text9); applyColor(box_two_text); applyColor(box_two_text9); applyColor(box_three_text7);counter++;}
+            R.id.box_three_text7 -> {applyColor(box_three_text7); applyColor(box_two_text7); applyColor(box_three_text); applyColor(box_four_text7); applyColor(box_three_text9);counter++;}
+            R.id.box_four_text7 -> {applyColor(box_four_text7); applyColor(box_three_text7); applyColor(box_four_text);applyColor(box_five_text7); applyColor(box_four_text9);counter++;}
+            R.id.box_five_text7 -> {applyColor(box_five_text7); applyColor(box_four_text7); applyColor(box_five_text9); applyColor(box_five_text);counter++;}
+
+            R.id.box_one_text11 -> {applyColor(box_one_text11); applyColor(box_two_text9); applyColor(box_one_text9); applyColor(box_one_text10);counter++;}
+            R.id.box_two_text9 -> {applyColor(box_two_text9); applyColor(box_one_text11); applyColor(box_two_text7); applyColor(box_three_text9); applyColor(box_two_text8);counter++;}
+            R.id.box_three_text9 -> {applyColor(box_three_text9); applyColor(box_two_text9); applyColor(box_three_text7); applyColor(box_four_text9);applyColor(box_three_text8);counter++;}
+            R.id.box_four_text9 -> {applyColor(box_four_text9); applyColor(box_three_text9); applyColor(box_four_text7); applyColor(box_five_text9); applyColor(box_four_text8);counter++;}
+            R.id.box_five_text9 -> {applyColor(box_five_text9); applyColor(box_four_text9); applyColor(box_five_text7); applyColor(box_five_text8);counter++;}
+
+            R.id.box_one_text10 -> {applyColor(box_one_text10); applyColor(box_one_text11); applyColor(box_two_text8); applyColor(box_one_text5);counter++;}
+            R.id.box_two_text8 -> {applyColor(box_two_text8); applyColor(box_one_text10); applyColor(box_two_text9); applyColor(box_three_text8); applyColor(box_two_text5);counter++;}
+            R.id.box_three_text8 -> {applyColor(box_three_text8); applyColor(box_two_text8); applyColor(box_three_text9); applyColor(box_four_text8); applyColor(box_three_text5);counter++;}
+            R.id.box_four_text8 -> {applyColor(box_four_text8); applyColor(box_three_text8); applyColor(box_four_text9); applyColor(box_five_text8); applyColor(box_four_text5);counter++;}
+            R.id.box_five_text8 -> {applyColor(box_five_text8); applyColor(box_four_text8); applyColor(box_five_text9); applyColor(box_five_text5);counter++;}
+
+            R.id.box_two_text5 -> {applyColor(box_two_text5); applyColor(box_one_text5); applyColor(box_two_text8); applyColor(box_three_text5);counter++;}
+            R.id.box_three_text5 -> {applyColor(box_three_text5); applyColor(box_two_text5); applyColor(box_three_text8); applyColor(box_four_text5);counter++;}
+            R.id.box_four_text5 -> {applyColor(box_three_text5); applyColor(box_four_text5); applyColor(box_four_text8); applyColor(box_five_text5);counter++;}
+            else-> view.setBackgroundColor(Color.LTGRAY);
+
+        }
+        binding.apply{
+            textView.text = counter.toString();
+        }
+
+    }
+
+    private fun setListeners() {
 //        val boxOneText = findViewById<TextView>(R.id.box_one_text)
 //        val boxOneText5 = findViewById<TextView>(R.id.box_one_text5)
 //        val boxTwoText = findViewById<TextView>(R.id.box_two_text)
@@ -171,43 +178,64 @@ class GameFragment : Fragment() {
 //        val boxTwoText5 = findViewById<TextView>(R.id.box_two_text5)
 //        val boxThreeText5 = findViewById<TextView>(R.id.box_three_text5)
 //        val boxFourText5 = findViewById<TextView>(R.id.box_four_text5)
-////        counter = findViewById<TextView>(R.id.textView)
+//        counter = findViewById<TextView>(R.id.textView)
+
+
+        binding.apply{
+            textView.text = counter.toString()
+            val clickableViews: List<View> =
+                listOf(boxOneText, boxOneText5, boxTwoText, boxThreeText,
+                    boxFourText, boxFiveText, boxOneText9, boxTwoText7, boxThreeText7,
+                    boxFourText7, boxFiveText7, boxOneText11, boxTwoText9, boxThreeText9,
+                    boxFourText9,boxFiveText9,boxFiveText5, boxOneText10, boxTwoText8, boxThreeText8, boxFourText8,
+                    boxFiveText8, boxTwoText5, boxThreeText5, boxFourText5)
+
+            for (item in clickableViews) {
+                item.setOnClickListener { makeColored(it) }
+            }
+        }
+
+
+
+    }
 //
-//
-//
-//        val clickableViews: List<View> =
-//            listOf(boxOneText, boxOneText5, boxTwoText, boxThreeText,
-//                boxFourText, boxFiveText, boxOneText9, boxTwoText7, boxThreeText7,
-//                boxFourText7, boxFiveText7, boxOneText11, boxTwoText9, boxThreeText9,
-//                boxFourText9,boxFiveText9,boxFiveText5, boxOneText10, boxTwoText8, boxThreeText8, boxFourText8,
-//                boxFiveText8, boxTwoText5, boxThreeText5, boxFourText5)
-//
-//        for (item in clickableViews) {
-//            item.setOnClickListener { makeColored(it) }
-//        }
-//
-//    }
-//
-//    private fun addNickname(view: View) {
+    private fun addNickname(view: View) {
 //        val editText = findViewById<EditText>(R.id.nickname_edit)
 //        val nicknameTextView = findViewById<TextView>(R.id.nickname)
+        binding.apply{
+            nickname.text = nicknameEdit.text.toString()
+            nicknameEdit.visibility = View.GONE
+
+            nickname.visibility = View.VISIBLE
+            view.visibility = View.GONE
+
+        }
+
+
 //        nicknameTextView.text = editText.text
 //        editText.visibility = View.GONE
 //        view.visibility = View.GONE
 //        nicknameTextView.visibility = View.VISIBLE
-//        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
-//    }
-//    private fun updateNickname (view: View) {
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
+    private fun updateNickname (view: View) {
 //        val editText = findViewById<EditText>(R.id.nickname_edit)
 //        val doneButton = findViewById<Button>(R.id.done_button)
+        
+        binding.apply{
+            nicknameEdit.visibility = View.VISIBLE
+            doneButton.visibility = View.GONE
+            view.visibility = View.GONE
+        }
 //        editText.visibility = View.VISIBLE
 //        doneButton.visibility = View.VISIBLE
 //        view.visibility = View.GONE
-//
-//        // Keyboard
+
+        // Keyboard
 //        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 //        imm.showSoftInput(editText, 0)
-//
-//    }
+
+    }
 }
