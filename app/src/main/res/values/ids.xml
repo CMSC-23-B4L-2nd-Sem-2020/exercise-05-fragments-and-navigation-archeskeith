@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="box_two_text9" type="id" />
+    <item name="box_one_text10" type="id" />
+    <item name="box_one_text9" type="id" />
+    <item name="retry_button" type="id" />
+    <item name="box_three_text9" type="id" />
+    <item name="box_two_text8" type="id" />
+    <item name="box_two_text7" type="id" />
+    <item name="box_one_text11" type="id" />
+    <item name="box_four_text9" type="id" />
+    <item name="box_three_text8" type="id" />
+    <item name="box_three_text7" type="id" />
+    <item name="box_five_text9" type="id" />
+    <item name="box_four_text8" type="id" />
+    <item name="box_four_text7" type="id" />
+    <item name="box_five_text8" type="id" />
+    <item name="box_five_text7" type="id" />
+    <item name="box_one_text5" type="id" />
+    <item name="box_three_text5" type="id" />
+    <item name="box_four_text5" type="id" />
+    <item name="box_five_text5" type="id" />
+    <item name="box_two_text5" type="id" />
+    <item name="box_one_text" type="id" />
+    <item name="box_two_text" type="id" />
+    <item name="box_three_text" type="id" />
+    <item name="box_four_text" type="id" />
+    <item name="box_five_text" type="id" />
+    <item name="nickname_edit" type="id" />
+</resources>

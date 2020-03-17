@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import com.example.lightsout.databinding.FragmentTitleBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -16,9 +19,12 @@ class TitleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return TextView(activity).apply {
-            setText(R.string.hello_blank_fragment)
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
+            R.layout.fragment_title,container,false)
+        binding.buttonTitle.setOnClickListener{view : View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
+        return binding.root
     }
 
 }
