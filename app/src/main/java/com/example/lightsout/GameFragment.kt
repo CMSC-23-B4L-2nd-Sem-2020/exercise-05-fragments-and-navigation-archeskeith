@@ -162,7 +162,7 @@ class GameFragment : Fragment() {
         if (colorCounter == 25){
 
 
-                view?.findNavController()?.navigate(R.id.action_gameFragment_to_gameWon)
+                view?.findNavController()?.navigate(R.id.action_gameFragment_to_gameWon,bundleOf("score" to counter))
 
 
         }

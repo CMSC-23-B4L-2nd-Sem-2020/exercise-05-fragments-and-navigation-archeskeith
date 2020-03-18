@@ -22,10 +22,12 @@ class GameWon: Fragment() {
         binding = DataBindingUtil.inflate<GameWonFragmentBinding>(inflater,
             R.layout.game_won_fragment,container,false)
 
+        binding.finalScore.text = this.arguments?.get("score").toString()
         binding.finalButton.setOnClickListener {view:View ->
             view.findNavController().navigate(R.id.action_gameWon_to_titleFragment)
 
         }
+
         return binding.root
     }
 
