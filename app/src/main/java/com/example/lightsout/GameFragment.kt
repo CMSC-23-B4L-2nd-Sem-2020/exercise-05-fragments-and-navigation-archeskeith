@@ -37,18 +37,24 @@ class GameFragment : Fragment() {
 //        val navController = this.findNavController(R.id.myNavHostFragment)
 //        NavigationUI.setupActionBarWithNavController(this,navController)
 //        NavigationUI.setupWithNavController(binding.navView, navController)
+//        nickname.visibility = View.VISIBLE
 
         binding.apply{
-            doneButton.setOnClickListener{
-                addNickname(it)
-            }
+//            doneButton.setOnClickListener{
+//                addNickname(it)
+//            }
             nicknameEdit.setOnClickListener{
                 updateNickname(it)
             }
 
             retryButton.setOnClickListener{makeBlackAgain()}
 
+
+
         }
+        binding.nickname.text = this.arguments?.get("name").toString()
+//        nickname.visibility = View.VISIBLE
+
         setListeners()
 
 //        val retry: Button = findViewById(R.id.retry_button)
@@ -199,26 +205,27 @@ class GameFragment : Fragment() {
 
     }
 //
-    private fun addNickname(view: View) {
-//        val editText = findViewById<EditText>(R.id.nickname_edit)
-//        val nicknameTextView = findViewById<TextView>(R.id.nickname)
-        binding.apply{
-            nickname.text = nicknameEdit.text.toString()
-            nicknameEdit.visibility = View.GONE
-
-            nickname.visibility = View.VISIBLE
-            view.visibility = View.GONE
-
-        }
-
-
-//        nicknameTextView.text = editText.text
-//        editText.visibility = View.GONE
-//        view.visibility = View.GONE
-//        nicknameTextView.visibility = View.VISIBLE
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
-    }
+//    private fun addNickname(view: View) {
+////        val editText = findViewById<EditText>(R.id.nickname_edit)
+////        val nicknameTextView = findViewById<TextView>(R.id.nickname)
+//        binding.apply{
+////            nickname.text = nicknameEdit.text.toString()
+////            nicknameEdit.visibility = View.GONE
+//
+//            nickname.visibility = View.VISIBLE
+////            view.visibility = View.GONE
+//
+////            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+////            inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
+//        }
+//
+//
+////        nicknameTextView.text = editText.text
+////        editText.visibility = View.GONE
+////        view.visibility = View.GONE
+////        nicknameTextView.visibility = View.VISIBLE
+//
+//    }
 
     private fun updateNickname (view: View) {
 //        val editText = findViewById<EditText>(R.id.nickname_edit)
