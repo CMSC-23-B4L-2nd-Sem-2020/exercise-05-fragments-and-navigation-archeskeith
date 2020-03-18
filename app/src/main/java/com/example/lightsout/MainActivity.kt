@@ -9,7 +9,7 @@ import com.example.lightsout.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-
+    //putting binding on mainActivity and adding fragments on activity_main.xml
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

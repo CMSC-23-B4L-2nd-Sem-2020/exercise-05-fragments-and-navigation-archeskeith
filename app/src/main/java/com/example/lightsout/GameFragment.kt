@@ -28,6 +28,9 @@ import kotlinx.android.synthetic.main.game_fragment.view.*
  * A simple [Fragment] subclass.
  */
 class GameFragment : Fragment() {
+
+    //the game fragment got all of its function codes from main activity (if compared to exer3)
+    //the only difference this has are the navigation codes, and the binding implementations
     var counter:Int = 0
     var colorCounter = 0
     private lateinit var binding: GameFragmentBinding
@@ -35,6 +38,7 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //binding implementation
         binding = DataBindingUtil.inflate<GameFragmentBinding>(inflater,
             R.layout.game_fragment,container,false)
 
@@ -48,9 +52,6 @@ class GameFragment : Fragment() {
 
 
         setListeners()
-
-
-
 
         return binding.root
     }
@@ -136,11 +137,8 @@ class GameFragment : Fragment() {
             textView.text = counter.toString();
         }
         if (colorCounter == 25){
-
-
+                //navigating to gameWon Fragment and acquiring score /number of clicks
                 view?.findNavController()?.navigate(R.id.action_gameFragment_to_gameWon,bundleOf("score" to counter))
-
-
         }
 
     }

@@ -24,7 +24,7 @@ class TitleFragment : Fragment() {
             R.layout.fragment_title,container,false)
         binding.buttonTitle.setOnClickListener{view : View ->
 
-
+            //setting "name" as variable of the value from the textbox for the name to be placed on the gameFragment/layout
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment, bundleOf("name" to binding.editTextTitle.text))
 
         }
