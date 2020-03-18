@@ -39,16 +39,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun addName(view: View){
-        val editText = findViewById<EditText>(R.id.nickname_edit)
-        val nicknameTextView = findViewById<TextView>(R.id.textView2)
-        nicknameTextView.text = editText.text
-
-        editText.visibility = View.GONE
-        view.visibility = View.GONE
-        nicknameTextView.visibility = View.VISIBLE
-
-    }
+//    private fun addName(view: View){
+//        val editText = findViewById<EditText>(R.id.nickname_edit)
+//        val nicknameTextView = findViewById<TextView>(R.id.textView2)
+//        nicknameTextView.text = editText.text
+//
+//        editText.visibility = View.GONE
+//        view.visibility = View.GONE
+//        nicknameTextView.visibility = View.VISIBLE
+//
+//    }
 
 //    private fun makeBlackAgain(){
 //        box_one_text.setBackgroundColor(Color.WHITE); box_one_text5.setBackgroundColor(Color.WHITE);
@@ -68,17 +68,17 @@ class MainActivity : AppCompatActivity() {
 //        val pointsText : TextView = findViewById(R.id.textView)
 //        pointsText.text = counter.toString();
 //    }
-    private fun applyColor(box:View){
-        val cd = box.background as ColorDrawable
-        val colorCode = cd.color
-
-        if (colorCode == Color.BLACK){
-            box.setBackgroundColor(Color.WHITE)
-        }else if (colorCode == Color.WHITE){
-            box.setBackgroundColor(Color.BLACK)
-        }
-
-    }
+//    private fun applyColor(box:View){
+//        val cd = box.background as ColorDrawable
+//        val colorCode = cd.color
+//
+//        if (colorCode == Color.BLACK){
+//            box.setBackgroundColor(Color.WHITE)
+//        }else if (colorCode == Color.WHITE){
+//            box.setBackgroundColor(Color.BLACK)
+//        }
+//
+//    }
 
 //    private fun makeColored(view:View){
 //
@@ -170,26 +170,26 @@ class MainActivity : AppCompatActivity() {
 //
 //    }
 
-    private fun addNickname(view: View) {
-        val editText = findViewById<EditText>(R.id.nickname_edit)
-        val nicknameTextView = findViewById<TextView>(R.id.nickname)
-        nicknameTextView.text = editText.text
-        editText.visibility = View.GONE
-        view.visibility = View.GONE
-        nicknameTextView.visibility = View.VISIBLE
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
-    }
-    private fun updateNickname (view: View) {
-        val editText = findViewById<EditText>(R.id.nickname_edit)
-        val doneButton = findViewById<Button>(R.id.done_button)
-        editText.visibility = View.VISIBLE
-        doneButton.visibility = View.VISIBLE
-        view.visibility = View.GONE
-
-        // Keyboard
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(editText, 0)
-
-    }
+//    private fun addNickname(view: View) {
+//        val editText = findViewById<EditText>(R.id.nickname_edit)
+//        val nicknameTextView = findViewById<TextView>(R.id.nickname)
+//        nicknameTextView.text = editText.text
+//        editText.visibility = View.GONE
+//        view.visibility = View.GONE
+//        nicknameTextView.visibility = View.VISIBLE
+//        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
+//    }
+//    private fun updateNickname (view: View) {
+//        val editText = findViewById<EditText>(R.id.nickname_edit)
+//        val doneButton = findViewById<Button>(R.id.done_button)
+//        editText.visibility = View.VISIBLE
+//        doneButton.visibility = View.VISIBLE
+//        view.visibility = View.GONE
+//
+//        // Keyboard
+//        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.showSoftInput(editText, 0)
+//
+//    }
 }

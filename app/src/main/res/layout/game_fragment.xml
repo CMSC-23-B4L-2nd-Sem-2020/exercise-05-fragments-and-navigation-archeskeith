@@ -453,32 +453,22 @@
             android:paddingBottom="@dimen/small_padding"
             android:textAlignment="center"
             android:textColor="#EBE4E4"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
 
-            />
-
-        <Button
-            android:id="@+id/done_button"
-            style="@style/retryButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/done"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nickname_edit" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/retry_button"
             style="@style/retryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="84dp"
             android:text="@string/retry"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

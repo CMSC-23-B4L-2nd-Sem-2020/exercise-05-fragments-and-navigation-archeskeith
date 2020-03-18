@@ -40,16 +40,8 @@ class GameFragment : Fragment() {
 //        nickname.visibility = View.VISIBLE
 
         binding.apply{
-//            doneButton.setOnClickListener{
-//                addNickname(it)
-//            }
-            nicknameEdit.setOnClickListener{
-                updateNickname(it)
-            }
 
             retryButton.setOnClickListener{makeBlackAgain()}
-
-
 
         }
         binding.nickname.text = this.arguments?.get("name").toString()
@@ -227,22 +219,22 @@ class GameFragment : Fragment() {
 //
 //    }
 
-    private fun updateNickname (view: View) {
-//        val editText = findViewById<EditText>(R.id.nickname_edit)
-//        val doneButton = findViewById<Button>(R.id.done_button)
-        
-        binding.apply{
-            nicknameEdit.visibility = View.VISIBLE
-            doneButton.visibility = View.GONE
-            view.visibility = View.GONE
-        }
-//        editText.visibility = View.VISIBLE
-//        doneButton.visibility = View.VISIBLE
-//        view.visibility = View.GONE
-
-        // Keyboard
-//        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//        imm.showSoftInput(editText, 0)
-
-    }
+//    private fun updateNickname (view: View) {
+////        val editText = findViewById<EditText>(R.id.nickname_edit)
+////        val doneButton = findViewById<Button>(R.id.done_button)
+//
+//        binding.apply{
+//            nicknameEdit.visibility = View.VISIBLE
+//            doneButton.visibility = View.GONE
+//            view.visibility = View.GONE
+//        }
+////        editText.visibility = View.VISIBLE
+////        doneButton.visibility = View.VISIBLE
+////        view.visibility = View.GONE
+//
+//        // Keyboard
+////        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+////        imm.showSoftInput(editText, 0)
+//
+//    }
 }
