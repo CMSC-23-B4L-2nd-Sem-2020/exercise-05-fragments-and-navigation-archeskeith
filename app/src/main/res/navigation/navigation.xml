@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/gameWon"
@@ -30,7 +32,9 @@
         tools:layout="@layout/game_fragment">
         <action
             android:id="@+id/action_gameFragment_to_gameWon"
-            app:destination="@id/gameWon" />
+            app:destination="@id/gameWon"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
