@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.lightsout.databinding.FragmentTitleBinding
-import com.example.lightsout.databinding.GameFragmentBinding
-import kotlinx.android.synthetic.main.game_fragment.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -27,23 +25,11 @@ class TitleFragment : Fragment() {
         binding.buttonTitle.setOnClickListener{view : View ->
 
 
-//            addNickname(view)
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment, bundleOf("name" to binding.editTextTitle.text))
 
         }
-//        binding.apply{
-//            buttonTitle.setOnClickListener{
-//                addNickname(it)
-//                view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-//            }
-//        }
+
         return binding.root
     }
 
-//    private fun addNickname (view: View){
-//        binding.apply{
-//            nickname.text = editTextTitle.text.toString()
-//
-//        }
-//    }
 }

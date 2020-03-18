@@ -37,10 +37,7 @@ class GameFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate<GameFragmentBinding>(inflater,
             R.layout.game_fragment,container,false)
-//        val navController = this.findNavController(R.id.myNavHostFragment)
-//        NavigationUI.setupActionBarWithNavController(this,navController)
-//        NavigationUI.setupWithNavController(binding.navView, navController)
-//        nickname.visibility = View.VISIBLE
+
 
         binding.apply{
 
@@ -48,32 +45,15 @@ class GameFragment : Fragment() {
 
         }
         binding.nickname.text = this.arguments?.get("name").toString()
-//        nickname.visibility = View.VISIBLE
+
 
         setListeners()
 
-//        if (flag){
-//            view.findNavController().navigate(action_gameFragment_to_gameWon)
-//
-//        }
 
-//        val retry: Button = findViewById(R.id.retry_button)
-//        retry.setOnClickListener{makeBlackAgain()}
 
 
         return binding.root
     }
-
-//    private fun addName(view: View){
-//        val editText = findViewById<EditText>(R.id.nickname_edit)
-//        val nicknameTextView = findViewById<TextView>(R.id.textView2)
-//        nicknameTextView.text = editText.text
-//
-//        editText.visibility = View.GONE
-//        view.visibility = View.GONE
-//        nicknameTextView.visibility = View.VISIBLE
-//
-//    }
 
 
     private fun makeBlackAgain(){
@@ -91,8 +71,7 @@ class GameFragment : Fragment() {
         box_two_text5.setBackgroundColor(Color.WHITE); box_three_text5.setBackgroundColor(Color.WHITE)
         box_four_text5.setBackgroundColor(Color.WHITE)
         counter = 0
-//        val pointsText : TextView = findViewById(R.id.textView)
-//        pointsText.text = counter.toString();
+
         binding.apply{
             textView.text = counter.toString();
         }
@@ -117,10 +96,7 @@ class GameFragment : Fragment() {
 
     private fun makeColored(view:View){
 
-//        val pointsText : TextView = findViewById(R.id.textView)
 
-
-        //i am assuming that this is the if function when it's clicked
         when (view.id){
 
             R.id.box_one_text -> {applyColor(box_one_text); applyColor(box_one_text9); applyColor(box_two_text); counter++;}
@@ -192,45 +168,9 @@ class GameFragment : Fragment() {
 
 
     }
-//
-//    private fun addNickname(view: View) {
-////        val editText = findViewById<EditText>(R.id.nickname_edit)
-////        val nicknameTextView = findViewById<TextView>(R.id.nickname)
-//        binding.apply{
-////            nickname.text = nicknameEdit.text.toString()
-////            nicknameEdit.visibility = View.GONE
-//
-//            nickname.visibility = View.VISIBLE
-////            view.visibility = View.GONE
-//
-////            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-////            inputMethodManager.hideSoftInputFromWindow(view.windowToken,0)
-//        }
-//
-//
-////        nicknameTextView.text = editText.text
-////        editText.visibility = View.GONE
-////        view.visibility = View.GONE
-////        nicknameTextView.visibility = View.VISIBLE
-//
-//    }
 
-//    private fun updateNickname (view: View) {
-////        val editText = findViewById<EditText>(R.id.nickname_edit)
-////        val doneButton = findViewById<Button>(R.id.done_button)
-//
-//        binding.apply{
-//            nicknameEdit.visibility = View.VISIBLE
-//            doneButton.visibility = View.GONE
-//            view.visibility = View.GONE
-//        }
-////        editText.visibility = View.VISIBLE
-////        doneButton.visibility = View.VISIBLE
-////        view.visibility = View.GONE
-//
 //        // Keyboard
 ////        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 ////        imm.showSoftInput(editText, 0)
-//
-//    }
+
 }
