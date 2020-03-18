@@ -3,6 +3,7 @@ package com.example.lightsout
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -27,6 +29,7 @@ import kotlinx.android.synthetic.main.game_fragment.view.*
  */
 class GameFragment : Fragment() {
     var counter:Int = 0
+    var colorCounter = 0
     private lateinit var binding: GameFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +51,11 @@ class GameFragment : Fragment() {
 //        nickname.visibility = View.VISIBLE
 
         setListeners()
+
+//        if (flag){
+//            view.findNavController().navigate(action_gameFragment_to_gameWon)
+//
+//        }
 
 //        val retry: Button = findViewById(R.id.retry_button)
 //        retry.setOnClickListener{makeBlackAgain()}
@@ -88,17 +96,21 @@ class GameFragment : Fragment() {
         binding.apply{
             textView.text = counter.toString();
         }
+        colorCounter = 0
 
     }
 
     private fun applyColor(box:View){
+
         val cd = box.background as ColorDrawable
         val colorCode = cd.color
 
         if (colorCode == Color.BLACK){
             box.setBackgroundColor(Color.WHITE)
+            colorCounter--
         }else if (colorCode == Color.WHITE){
             box.setBackgroundColor(Color.BLACK)
+            colorCounter++
         }
 
     }
@@ -147,38 +159,18 @@ class GameFragment : Fragment() {
         binding.apply{
             textView.text = counter.toString();
         }
+        if (colorCounter == 25){
+
+
+                view?.findNavController()?.navigate(R.id.action_gameFragment_to_gameWon)
+
+
+        }
 
     }
 
     private fun setListeners() {
-//        val boxOneText = findViewById<TextView>(R.id.box_one_text)
-//        val boxOneText5 = findViewById<TextView>(R.id.box_one_text5)
-//        val boxTwoText = findViewById<TextView>(R.id.box_two_text)
-//        val boxThreeText = findViewById<TextView>(R.id.box_three_text)
-//        val boxFourText = findViewById<TextView>(R.id.box_four_text)
-//        val boxFiveText = findViewById<TextView>(R.id.box_five_text)
-//        val boxOneText9 = findViewById<TextView>(R.id.box_one_text9)
-//        val boxTwoText7 = findViewById<TextView>(R.id.box_two_text7)
-//        val boxThreeText7 = findViewById<TextView>(R.id.box_three_text7)
-//        val boxFourText7 = findViewById<TextView>(R.id.box_four_text7)
-//        val boxFiveText7 = findViewById<TextView>(R.id.box_five_text7)
-//        val boxOneText11 = findViewById<TextView>(R.id.box_one_text11)
-//        val boxTwoText9 = findViewById<TextView>(R.id.box_two_text9)
-//        val boxThreeText9 = findViewById<TextView>(R.id.box_three_text9)
-//        val boxFourText9 = findViewById<TextView>(R.id.box_four_text9)
-//        val boxFiveText9 = findViewById<TextView>(R.id.box_five_text9)
-//        val boxFiveText5 = findViewById<TextView>(R.id.box_five_text5)
-//        val boxOneText10 = findViewById<TextView>(R.id.box_one_text10)
-//        val boxTwoText8 = findViewById<TextView>(R.id.box_two_text8)
-//        val boxThreeText8 = findViewById<TextView>(R.id.box_three_text8)
-//        val boxFourText8 = findViewById<TextView>(R.id.box_four_text8)
-//        val boxFiveText8 = findViewById<TextView>(R.id.box_five_text8)
-//        val boxTwoText5 = findViewById<TextView>(R.id.box_two_text5)
-//        val boxThreeText5 = findViewById<TextView>(R.id.box_three_text5)
-//        val boxFourText5 = findViewById<TextView>(R.id.box_four_text5)
-//        counter = findViewById<TextView>(R.id.textView)
-
-
+        var colorCounter = 0;
         binding.apply{
             textView.text = counter.toString()
             val clickableViews: List<View> =
@@ -191,6 +183,10 @@ class GameFragment : Fragment() {
             for (item in clickableViews) {
                 item.setOnClickListener { makeColored(it) }
             }
+
+
+
+
         }
 
 

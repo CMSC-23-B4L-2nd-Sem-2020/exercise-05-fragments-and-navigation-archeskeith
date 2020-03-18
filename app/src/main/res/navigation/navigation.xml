@@ -16,13 +16,21 @@
     </fragment>
     <fragment
         android:id="@+id/gameWon"
-        android:name="com.example.lightsout.gameWon"
+        android:name="com.example.lightsout.GameWon"
         android:label="gameWon"
-        tools:layout="@layout/game_won_fragment"/>
+        tools:layout="@layout/game_won_fragment">
+        <action
+            android:id="@+id/action_gameWon_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.lightsout.GameFragment"
         android:label="gameFragment"
-        tools:layout="@layout/game_fragment"/>
+        tools:layout="@layout/game_fragment">
+        <action
+            android:id="@+id/action_gameFragment_to_gameWon"
+            app:destination="@id/gameWon" />
+    </fragment>
 
 </navigation>

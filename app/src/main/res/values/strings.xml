@@ -19,4 +19,5 @@
     <string name="congratulations">CONGRATULATIONS</string>
     <string name="you_have_turned_off_all_the_lights">You have turned off all the lights!</string>
     <string name="final_score">FINAL SCORE:</string>
+    <string name="try_again">TRY AGAIN</string>
 </resources>
